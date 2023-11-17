@@ -3,6 +3,8 @@
 #define MAX_INPUT_SIZE 1024
 
 void execute_command(char *command) {
+    pid_t pid;
+
     /* Tokenize the command */
     char *args[MAX_INPUT_SIZE];
     char *token = strtok(command, " \t\n");
@@ -14,9 +16,6 @@ void execute_command(char *command) {
     }
 
     args[i] = NULL;
-
-    /* Declare pid_t at the beginning of the block */
-    pid_t pid;
 
     /* Fork a child process */
     pid = fork();
